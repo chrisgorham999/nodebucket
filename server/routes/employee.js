@@ -10,7 +10,6 @@ const { mongo } = require('../utils/mongo')
 // localhost: 3000/api/employees/1007
 router.get('/:empId', (req, res, next) => {
     try {
-
         console.log('empId', req.params.empId)
         let { empId } = req.params // get the empId from the req.params object
         empId = parseInt(empId, 10) // try to determine if the empId is a numerical value

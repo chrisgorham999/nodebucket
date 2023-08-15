@@ -3,6 +3,7 @@
  * Author: Professor Krasso
  * Date: 8/5/2023
  */
+
 'use strict'
 
 // Require statements
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, '../dist/nodebucket')))
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')))
 
-app.use('api/employees', employeeRoute)
+app.use('/api/employees', employeeRoute)
 
 
 // error handler for 404 errors
