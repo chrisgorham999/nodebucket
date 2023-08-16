@@ -1,6 +1,13 @@
-/**
- * Add Attribution
- */
+/*
+======================================
+; Title: mongo.js
+; Author: Chris Gorham
+; Date Created: 14 August 2023
+; Last Updated: 15 August 2023
+; Description: This code supports connection to the Mongo database for the project
+; Sources Used: Bellevue University WEB-450 Boot Camp Live Classes
+;=====================================
+*/
 
 'use strict'
 

@@ -1,8 +1,13 @@
-/**
- * Title: app.component.ts
- * Author: Professor Krasso
- * Date: 8/5/23
- */
+/*
+======================================
+; Title: app.component.ts
+; Author: Chris Gorham
+; Date Created: 15 August 2023
+; Last Updated: 15 August 2023
+; Description: This code supports the App Component
+; Sources Used: Bellevue University WEB-450 GitHub
+;=====================================
+*/
 
 // imports statements
 import { Component } from '@angular/core';

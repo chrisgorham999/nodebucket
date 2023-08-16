@@ -1,3 +1,14 @@
+/*
+======================================
+; Title: employee.ts
+; Author: Chris Gorham
+; Date Created: 14 August 2023
+; Last Updated: 15 August 2023
+; Description: This code supports the employee route
+; Sources Used: Bellevue University WEB-450 Boot Camp Live Classes
+;=====================================
+*/
+
 'use strict'
 
 // imports / requires
