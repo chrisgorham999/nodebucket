@@ -1,10 +1,15 @@
-/**
- * Title: security-routing.module.ts
- * Author: Professor Krasso
- * Date: 8/5/23
- */
+/*
+======================================
+; Title: security-routing.module.ts
+; Author: Chris Gorham
+; Date Created: 15 August 2023
+; Last Updated: 15 August 2023
+; Description: This code supports Security Routing
+; Sources Used: Bellevue University WEB-450 GitHub
+;=====================================
+*/
 
-// imports statements
+// import statements
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SecurityComponent } from './security.component';

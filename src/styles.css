@@ -1,1 +1,148 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+======================================
+; Title: styles.css
+; Author: Chris Gorham
+; Date Created: 15 August 2023
+; Last Updated: 15 August 2023
+; Description: This code supports CSS styling for the entire app
+; Sources Used: N/A
+;=====================================
+*/
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* backgrounds */
+
+.bg-light-green {
+  background-color: lightgreen;
+}
+
+.bg-grey {
+  background-color: #5d5d5d;
+}
+
+.bg-lighter-grey {
+  background-color: grey;
+}
+
+.bg-yellow {
+  background-color: yellow;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+/* font colors */
+
+.font-white {
+  color:white;
+}
+
+.font-yellow {
+  color: yellow;
+}
+
+.font-black {
+  color: black;
+}
+
+/* paddings */
+
+.padding-right {
+  padding-right: 60px;
+}
+
+.padding-left {
+  padding-left: 20px;
+}
+
+.medium-padding-left {
+  padding-left: 100px;
+}
+
+.big-padding-left {
+  padding-left: 200px;
+}
+
+.padding-top {
+  padding-top: 10px;
+}
+
+.padding-standard {
+  padding: 10px;
+}
+
+.edit-padding-left {
+  padding-left: 225px;
+}
+
+
+/* floats */
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+
+/* other stuff */
+
+.center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.logo {
+  margin-top: 5px;
+}
+
+.main-container {
+  padding-top: 25px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.msg-error {
+  margin: 10px 0;
+  padding: 12px;
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
+.pointer {
+  padding: 1px;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.left-side {
+  width: 50%;
+}
+
+.button-width {
+  width: 35%;
+}
+
+.comments {
+  height: 100px;
+}
+
+.main-font {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 28px;
+}
+

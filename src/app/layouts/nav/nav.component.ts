@@ -1,10 +1,15 @@
-/**
- * Title: nav.component.ts
- * Author: Professor Krasso
- * Date: 8/5/23
- */
+/*
+======================================
+; Title: nav.component.ts
+; Author: Chris Gorham
+; Date Created: 15 August 2023
+; Last Updated: 15 August 2023
+; Description: This code supports the Nav Component
+; Sources Used: N/A
+;=====================================
+*/
 
-// imports statements
+// import statements
 import { Component } from '@angular/core';
 
 @Component({
