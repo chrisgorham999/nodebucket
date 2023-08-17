@@ -3,7 +3,7 @@
 ; Title: styles.css
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 15 August 2023
+; Last Updated: 17 August 2023
 ; Description: This code supports CSS styling for the entire app
 ; Sources Used: N/A
 ;=====================================
@@ -16,6 +16,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .bg-light-green {
   background-color: lightgreen;
+}
+
+.bg-slytherin {
+  background-color: #2a623d;
+}
+
+.bg-slytherin2 {
+  background-color: #5d5d5d;
+}
+
+.bg-slytherin3 {
+  background-color: #aaaaaa;
 }
 
 .bg-grey {
@@ -38,19 +50,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: white;
 }
 
-/* font colors */
-
-.font-white {
-  color:white;
-}
-
-.font-yellow {
-  color: yellow;
-}
-
-.font-black {
-  color: black;
-}
 
 /* paddings */
 
@@ -170,13 +169,12 @@ link:hover {
   }
 
 .dropdown-item {
-  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .dropdown-item:hover {
   cursor: pointer;
   background-color: #212529 !important;
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: white;
 }
 
 .material-icons {

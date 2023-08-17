@@ -3,14 +3,14 @@
 ; Title: nav.component.html
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 15 August 2023
+; Last Updated: 17 August 2023
 ; Description: This code supports the HTML functionality for the Nav Component
 ; Sources Used: N/A
 ;=====================================
 -->
 
 <nav class="bg-slytherin ps-3 navbar navbar-expand-sm fixed-top">
-    <a routerLink="/" class="navbar-brand">Nodebucket</a>
+    <a routerLink="/" class="logo"><img src="./assets/logo.png" width="25%"></a>
 
     <button 
     class="navbar-toggler"
@@ -28,23 +28,23 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto p-2">
         <li class="nav-item">
-          <a routerLink="/home" class="nav-link">Home</a>
+          <a routerLink="/home" class="nav-link font-yellow">Home</a>
         </li>
         <li class="nav-item">
-          <a routerLink="#" class="nav-link">About</a>
+          <a routerLink="#" class="nav-link font-yellow">About</a>
         </li>
         <li class="nav-item">
-          <a routerLink="#" class="nav-link">Contact</a>
+          <a routerLink="#" class="nav-link font-yellow">Contact</a>
         </li>
 
         <li *ngIf="!isSignedIn">
-          <a class="nav-link" routerLink="/security/signin">Sign in</a>
+          <a class="nav-link font-yellow" routerLink="/security/signin">Sign in</a>
         </li>
         <!--user account-->
         <li *ngIf="isSignedIn" class="nav-item dropdown">
           <a 
           href="#"
-          class="nav-link pe-3"
+          class="nav-link pe-3 font-yellow bg-slytherin"
           id="navbarDropdown"
           role="button"
           data-bs-toggle="dropdown"
@@ -52,16 +52,16 @@
         <span class="material-icons">person</span>
       </a>
 
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <li class="dropdown-item">
+      <ul class="dropdown-menu dropdown-menu-end bg-black" aria-labelledby="navbarDropdown">
+        <li class="dropdown-item font-yellow">
           Signed in as {{ appUser.fullName }}
         </li>
         <hr />
         <li>
-          <a routerLink="/task-management/my-tasks" class="dropdown-item">My Tasks</a>
+          <a routerLink="/task-management/my-tasks" class="dropdown-item font-yellow">My Tasks</a>
         </li>
         <li>
-          <a (click)="signout()" class="dropdown">Sign Out</a>
+          <a (click)="signout()" class="dropdown-item font-yellow">Sign Out</a>
         </li>
 
       </ul>

@@ -3,7 +3,7 @@
 ; Title: app.component.ts
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 15 August 2023
+; Last Updated: 17 August 2023
 ; Description: This code supports the App Component
 ; Sources Used: Bellevue University WEB-450 GitHub
 ;=====================================

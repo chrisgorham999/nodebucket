@@ -39,7 +39,7 @@ router.get('/:empId', (req, res, next) => {
 
         // if you can't find an employee in the system, return a 404 error message
         if (!employee) {
-            const err = new Error('Unable to find employee with empId ' + empId)
+            const err = new Error('Unable to find employee with ID ' + empId)
             err.status = 404
             console.log('err', err)
             next(err)

@@ -1,8 +1,19 @@
+<!--
+======================================
+; Title: signin.component.html
+; Author: Chris Gorham
+; Date Created: 15 August 2023
+; Last Updated: 17 August 2023
+; Description: This code supports the HTML functionality for the Sign In Component
+; Sources Used: N/A
+;=====================================
+-->
+
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="card shadow">
-                <div class="card-title text-center border-bottom">
+                <div class="card-title text-center border-bottom bg-slytherin3">
                     <h2 class="p-3">Employee Sign In</h2>
                 </div>
                 <!--error message-->
@@ -10,13 +21,13 @@
                     {{ errorMessage }}
                 </div>
 
-                <div class="card-body">
+                <div class="card-body bg-slytherin3">
                     <form [formGroup]="signinForm" (ngSubmit)="signin(); signinForm.reset();">
-                    <div class="mb-4">
-                        <label for="empId" class="form-label">Employee Id:</label>
-                        <input type="text" class="form-control" id="empId" formControlName="empId">
+                    <div>
+                        <label for="empId" class="form-label">Employee ID:</label>
+                        <input type="text" class="form-control" id="empId" formControlName="empId"><br>
                         <div class="d-grid"></div>
-                        <button type="submit" class="btn btn-dark">
+                        <button type="submit" class="btn bg-slytherin2 font-yellow">
                             <span *ngIf="!isLoading">Sign In</span>
                         <div *ngIf="isLoading">
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
@@ -26,7 +37,7 @@
                     </form>
                 </div>
                 </div>
-                <a routerLink="/" class="text-dark text-underline-hover">Return</a>
+                <a routerLink="/" class="text-underline-hover font-yellow"><br>Return</a>
             </div>
         </div>
     </div>

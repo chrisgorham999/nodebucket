@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 export interface AppUser {
+  // defines variable to be used in the display in the navbar
   fullName: string
 }
 
@@ -24,6 +25,7 @@ export interface AppUser {
 })
 export class NavComponent {
 
+  // define variables
   appUser: AppUser
   isSignedIn: boolean
 
@@ -37,7 +39,7 @@ export class NavComponent {
       }
     }
   }
-
+  // signout function that deletes the cookie and reloads the page
   signout() {
     this.cookieService.deleteAll();
     window.location.href = '/'

@@ -3,12 +3,38 @@
 ; Title: nav.component.css
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 15 August 2023
-; Description: This code supports styling for the Nav component
+; Last Updated: 17 August 2023
+; Description: This code supports styling for the Nav Component
 ; Sources Used: N/A
 ;=====================================
 */
 
+.font-yellow {
+    color: yellow;
+}
+
 .bg-slytherin {
     background-color: #2a623d;
+  }
+  
+.bg-slytherin2 {
+    background-color: #5d5d5d;
+  }
+  
+.bg-slytherin3 {
+    background-color: #aaaaaa;
+  }
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+  background-color: #2a623d !important;
+  color: yellow;
+}
+
+.sign-out-right {
+    text-align: right;
 }
