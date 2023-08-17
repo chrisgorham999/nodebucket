@@ -3,18 +3,19 @@
 ; Title: app-routing.module.ts
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 15 August 2023
+; Last Updated: 17 August 2023
 ; Description: This code supports routing in the app
 ; Sources Used: Bellevue University WEB-450 GitHub
 ;=====================================
 */
 
 // imports statements
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { authGuard } from './shared/auth.guard';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 import { HomeComponent } from './home/home.component';
-import { authGuard } from './shared/auth.guard';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 
 // routes array with a path, component, and title for each route in the application (e.g. home, about, contact, etc.)
 const routes: Routes = [

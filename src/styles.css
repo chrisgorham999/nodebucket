@@ -18,6 +18,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: lightgreen;
 }
 
+.bg-slytherin {
+  background-color: #2a623d;
+}
+
+.bg-slytherin2 {
+  background-color: #5d5d5d;
+}
+
+.bg-slytherin3 {
+  background-color: #aaaaaa;
+}
+
 .bg-grey {
   background-color: #5d5d5d;
 }
@@ -38,19 +50,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: white;
 }
 
-/* font colors */
-
-.font-white {
-  color:white;
-}
-
-.font-yellow {
-  color: yellow;
-}
-
-.font-black {
-  color: black;
-}
 
 /* paddings */
 

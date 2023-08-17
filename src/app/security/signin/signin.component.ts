@@ -1,3 +1,15 @@
+/*
+======================================
+; Title: signin.component.ts
+; Author: Chris Gorham
+; Date Created: 15 August 2023
+; Last Updated: 17 August 2023
+; Description: This code supports the Sign In Component
+; Sources Used: N/A
+;=====================================
+*/
+
+// imports
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +19,8 @@ import { SecurityService } from '../security.service';
 
 
 export interface SessionUser {
+  
+  // define variables
   empId: number;
   firstName: string;
   lastName: string;
@@ -18,10 +32,13 @@ export interface SessionUser {
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
+
+  // define variables
   errorMessage: string
   sessionUser: SessionUser
   isLoading: boolean = false
 
+  // form validators - must be a number
   signinForm = this.fb.group({
     empId: [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])]
   })
@@ -32,6 +49,7 @@ export class SigninComponent {
     this.errorMessage = ''
   }
 
+  // the sign in function
   signin() {
     this.isLoading = true;
     const empId = this.signinForm.controls['empId'].value

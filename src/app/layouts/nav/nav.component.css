@@ -9,6 +9,18 @@
 ;=====================================
 */
 
+.font-yellow {
+    color: yellow;
+}
+
 .bg-slytherin {
     background-color: #2a623d;
-}
+  }
+  
+  .bg-slytherin2 {
+    background-color: #5d5d5d;
+  }
+  
+  .bg-slytherin3 {
+    background-color: #aaaaaa;
+  }

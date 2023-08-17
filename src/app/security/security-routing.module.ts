@@ -3,7 +3,7 @@
 ; Title: security-routing.module.ts
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 15 August 2023
+; Last Updated: 17 August 2023
 ; Description: This code supports Security Routing
 ; Sources Used: Bellevue University WEB-450 GitHub
 ;=====================================
