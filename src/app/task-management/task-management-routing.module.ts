@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TaskManagementComponent } from './task-management.component';
 import { TasksComponent } from './tasks/tasks.component';
 
+// routes
 const routes: Routes = [
   {
     path: '',

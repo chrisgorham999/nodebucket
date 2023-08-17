@@ -52,7 +52,7 @@
         <span class="material-icons">person</span>
       </a>
 
-      <ul class="dropdown-menu dropdown-menu-end bg-slytherin" aria-labelledby="navbarDropdown">
+      <ul class="dropdown-menu dropdown-menu-end bg-black" aria-labelledby="navbarDropdown">
         <li class="dropdown-item font-yellow">
           Signed in as {{ appUser.fullName }}
         </li>
@@ -61,7 +61,7 @@
           <a routerLink="/task-management/my-tasks" class="dropdown-item font-yellow">My Tasks</a>
         </li>
         <li>
-          <a (click)="signout()" class="dropdown font-yellow text-center">Sign Out</a>
+          <a (click)="signout()" class="dropdown-item font-yellow">Sign Out</a>
         </li>
 
       </ul>

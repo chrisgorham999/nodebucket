@@ -10,11 +10,11 @@
 */
 
 // imports
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SecurityService } from '../security.service';
 
 
@@ -38,7 +38,7 @@ export class SigninComponent {
   sessionUser: SessionUser
   isLoading: boolean = false
 
-  // form validators - must be a number
+  // form validators - must be a number and is a required entry
   signinForm = this.fb.group({
     empId: [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])]
   })
