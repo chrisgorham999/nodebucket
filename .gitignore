@@ -1,0 +1,5 @@
+
+node_modules/safevalues/restricted/legacy.mjs
+*.pack
+*.old
+*.mjs
