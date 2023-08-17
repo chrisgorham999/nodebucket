@@ -3,7 +3,7 @@
 ; Title: app.module.ts
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 15 August 2023
+; Last Updated: 16 August 2023
 ; Description: This code supports app module functionality
 ; Sources Used: Bellevue University WEB-450 GitHub
 ;=====================================
@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -43,6 +44,7 @@ import { NgModule } from '@angular/core';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
