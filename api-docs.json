@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "version": "1.0.0",
+      "title": " NodeBucket - OpenAPI Documentation",
+      "description": "NodeBucket - OpenAPI Documentation"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/api"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Employees",
+        "description": "Functions involving Employees"
+      }
+    ],
+    "paths": {
+      "/employees/{empId}": {
+        "get": {
+          "tags": ["Employees"],
+          "summary": "findEmployeeById",
+          "description": "Find an employee by their unique Employee ID.",
+          "parameters": [
+            {
+              "name": "empId",
+              "in": "path",
+              "required": true,
+              "description": "4 digit Employee ID",
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "empId": {
+                        "type": "number",
+                        "example": 1009
+                      },
+                      "firstName": {
+                        "type": "string",
+                        "example": "David"
+                      },
+                      "lastName": {
+                        "type": "string",
+                        "example": "Fincher"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "404": {
+              "description": "Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      }
+    },
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"]
+}
