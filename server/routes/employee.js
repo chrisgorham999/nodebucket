@@ -1,6 +1,6 @@
 /*
 ======================================
-; Title: employee.ts
+; Title: employee.js
 ; Author: Chris Gorham
 ; Date Created: 14 August 2023
 ; Last Updated: 15 August 2023
@@ -16,9 +16,7 @@ const express = require('express')
 const router = express.Router()
 const { mongo } = require('../utils/mongo')
 
-// findEmployeeById
-// @example:
-// localhost: 3000/api/employees/1007
+// findEmployeeById function
 router.get('/:empId', (req, res, next) => {
     try {
         console.log('empId', req.params.empId)
@@ -56,4 +54,4 @@ router.get('/:empId', (req, res, next) => {
 
 
 // exports router
-module.exports = router
+module.exports = router;
