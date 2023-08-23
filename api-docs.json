@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.3",
     "info": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": " NodeBucket - OpenAPI Documentation",
       "description": "NodeBucket - OpenAPI Documentation"
     },
@@ -14,6 +14,10 @@
       {
         "name": "Employees",
         "description": "Functions involving Employees"
+      },
+      {
+        "name": "Tasks",
+        "description": "Functions involving Tasks"
       }
     ],
     "paths": {
