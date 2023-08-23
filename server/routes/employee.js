@@ -4,7 +4,7 @@
 ; Author: Chris Gorham
 ; Date Created: 14 August 2023
 ; Last Updated: 21 August 2023
-; Description: This code supports the employee route and db functions
+; Description: This code supports the employee route and API functions
 ; Sources Used: Bellevue University WEB-450 Boot Camp Live Classes
 ;=====================================
 */
