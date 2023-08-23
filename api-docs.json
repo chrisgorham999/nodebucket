@@ -94,7 +94,7 @@
                   "schema": {
                     "type": "object",
                     "properties": {
-                      "tasks": {
+                      "todo": {
                         "text": "string",
                         "example": "Complete administrative paperwork"
                       }
@@ -113,10 +113,70 @@
               "description": "Internal Server Error"
             }
           }
+        },
+        "post": {
+          "tags": ["Tasks"],
+          "summary": "createTask",
+          "description": "API for creating a new task for an Employee",
+          "parameters": [
+            {
+              "name": "empId",
+              "in": "path",
+              "required": true,
+              "description": "4 Digit Employee ID",
+              "schema": {
+                "text": {
+                  "type": "string"
+                }
+              }
+            }],
+            "requestBody": {
+              "description": "Task info",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "required": ["empId"],
+                    "properties": {
+                      "text": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            },
+          "responses": {
+            "201": {
+              "description": "Success! The Task has been created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "todo": {
+                        "text": "string",
+                        "example": "Complete administrative paperwork"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "404": {
+              "description": "Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
         }
       }
     },
     "schemes": ["http"],
     "consumes": ["application/json"],
     "produces": ["application/json"]
-}
+  }
