@@ -131,6 +131,10 @@
               "schema": {
                 "text": {
                   "type": "string"
+                },
+                "category": {
+                  "categoryName": "string",
+                  "backgroundColor": "string"
                 }
               }
             }],
@@ -143,6 +147,13 @@
                     "required": ["empId"],
                     "properties": {
                       "text": {
+                        "type": "string"
+                      },
+                      "category": {
+                        "categoryName": {
+                          "type": "string"
+                      },
+                      "backgroundColor": {
                         "type": "string"
                       }
                     }
@@ -184,3 +195,4 @@
     "consumes": ["application/json"],
     "produces": ["application/json"]
   }
+}

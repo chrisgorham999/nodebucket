@@ -3,7 +3,7 @@
 ; Title: app.module.ts
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 21 August 2023
+; Last Updated: 23 August 2023
 ; Description: This code supports app module functionality
 ; Sources Used: Bellevue University WEB-450 GitHub
 ;=====================================
