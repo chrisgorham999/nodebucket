@@ -37,28 +37,28 @@
         <div class="col-sm-10 col-md-8 col-lg-6">
             <form [formGroup]="newTaskForm" (ngSubmit)="addTask();">
                 <div class="input-group mb-3">
-                    <input  type="text" class="form-control" formControlName="text" placeholder="Add a new task" aria-label="Add a new task" aria-describedby="btnAdd">
-                    <button class="btn btn-outline-secondary" type="submit" [disabled]="!newTaskForm.valid" id="btnAdd">Add</button>
+                    <input  type="text" class="form-control bg-slytherin2 font-yellow" formControlName="text" placeholder="Add a new task" aria-label="Add a new task" aria-describedby="btnAdd">
+                    <button class="btn btn-outline-secondary font-yellow" type="submit" [disabled]="!newTaskForm.valid" id="btnAdd">Add</button>
                 </div>
             
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" formControlName="category" name="category" id="testingRadio" value="testing">
-                    <label for="testingRadio" class="form-check-label">Testing</label>
+                    <label for="testingRadio" class="form-check-label font-yellow">Testing</label>
                 </div>
 
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" formControlName="category" name="category" id="meetingsRadio" value="meetings">
-                    <label for="meetingsRadio" class="form-check-label">Meetings</label>
+                    <label for="meetingsRadio" class="form-check-label font-yellow">Meetings</label>
                 </div>
 
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" formControlName="category" name="category" id="projectsRadio" value="projects">
-                    <label for="projectsRadio" class="form-check-label">Projects</label>
+                    <label for="projectsRadio" class="font-yellow form-check-label">Projects</label>
                 </div>
 
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" formControlName="category" name="category" id="otherRadio" value="other">
-                    <label for="otherRadio" class="form-check-label">Other</label>
+                    <label for="otherRadio" class="form-check-label font-yellow">Other</label>
                 </div>
 
                 <!--error handling-->
@@ -100,9 +100,11 @@
 
         <!--todo column-->
         <div class="col-sm-5 col-md-4 col-lg-3">
-            <h4 class="text-center">ToDo</h4>
-            <div class="p-3 border bg-light">
+            <h4 class="text-center font-yellow">ToDo</h4>
+            <div class="p-3 border bg-slytherin2">
                 <div class="container">
+
+
                     <!--message for no todo tasks-->
                     <div *ngIf="!todo || todo.length === 0">
                         <div class="alert alert-info">
@@ -112,7 +114,7 @@
                     <!--end message for no todo tasks-->
 
                     <div *ngFor="let item of todo" class="mt-2">
-                        <div class="row border bg-white">
+                        <div class="row border bg-slytherin3">
                             <div class="col-sm-6">
                                 <div class="card-body">
 
@@ -144,12 +146,12 @@
 
         <!--done column start-->
         <div class="col-sm-5 col-md-4 col-lg-3">
-            <h4 class="text-center">Done</h4>
-            <div class="p-3 border bg-light">
+            <h4 class="text-center font-yellow">Done</h4>
+            <div class="p-3 border bg-slytherin2">
                 <div class="container">
                     <!--message for no done tasks-->
                     <div *ngIf="!done || done.length === 0">
-                        <div class="alert alert-info">
+                        <div class="alert alert-info bg-slytherin font-yellow">
                             No tasks done yet!
                         </div>
                     </div>
