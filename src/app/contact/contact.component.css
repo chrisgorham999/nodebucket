@@ -1,0 +1,18 @@
+/*
+======================================
+; Title: contact.component.css
+; Author: Chris Gorham
+; Date Created: 23 August 2023
+; Last Updated: 23 August 2023
+; Description: This code supports styling for the Contact Component
+; Sources Used: N/A
+;=====================================
+*/
+
+.map {
+    border: 4px solid #FFF000;
+}
+
+.font-yellow {
+    color: yellow;
+}

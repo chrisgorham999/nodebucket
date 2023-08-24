@@ -3,7 +3,7 @@
 ; Title: employee.js
 ; Author: Chris Gorham
 ; Date Created: 14 August 2023
-; Last Updated: 21 August 2023
+; Last Updated: 23 August 2023
 ; Description: This code supports the employee route and API functions
 ; Sources Used: Bellevue University WEB-450 Boot Camp Live Classes
 ;=====================================
@@ -22,17 +22,29 @@ const { restart } = require('nodemon')
 
 const ajv = new Ajv() // create a new instance of the Ajv class
 
+// category schema
+const categorySchema = {
+    type: 'object',
+    properties: {
+        categoryName: { type: 'string' },
+        backgroundColor: { type: 'string' }
+    },
+    required: ['categoryName', 'backgroundColor'],
+    additionalProperties: false
+}
+
 // define a schema to validate a new task
-// TODO: figure out why this is not preventing additional properties
-// TODO: as of now it is allowing us to send a second property of bar
 const taskSchema = {
     type: 'object', 
     properties: {
-        text: { type: 'string' }
+        text: { type: 'string' },
+        category: categorySchema
     },
-    required: ['text'], 
+    required: ['text', 'category'], 
     additionalProperties: false
 }
+
+
 
 
 // findEmployeeById function
@@ -142,12 +154,13 @@ router.post('/:empId/tasks', (req, res, next) => {
                 return
             }
 
-            const { text } = req.body
-            console.log('req.body', req.body)
+            const { task } = req.body
+            console.log('New task: ', task)
+            console.log('body', req.body)
 
             // validate the request object
             const validator = ajv.compile(taskSchema)
-            const valid = validator( { text })
+            const valid = validator(task)
 
             console.log('valid', valid)
 
@@ -160,14 +173,16 @@ router.post('/:empId/tasks', (req, res, next) => {
                 return
             }
 
-            const task = {
+            // build the task object to insert into MongoDB atlas
+            const newTask = {
                 _id: new ObjectId(),
-                text
+                text: task.text,
+                category: task.category
             }
 
             const result = await db.collection('employees').updateOne(
                 { empId },
-                { $push: { todo: task }}
+                { $push: { todo: newTask }}
             )
 
             console.log('result', result)
@@ -180,7 +195,7 @@ router.post('/:empId/tasks', (req, res, next) => {
                 return
             }
 
-            res.status(201).send({ id: task._id })
+            res.status(201).send({ id: newTask._id })
 
         }, next)
 

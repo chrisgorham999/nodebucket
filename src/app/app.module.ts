@@ -3,7 +3,7 @@
 ; Title: app.module.ts
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 16 August 2023
+; Last Updated: 21 August 2023
 ; Description: This code supports app module functionality
 ; Sources Used: Bellevue University WEB-450 GitHub
 ;=====================================
@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,6 +32,7 @@ import { NgModule } from '@angular/core';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { NgModule } from '@angular/core';
     FooterComponent,
     HomeComponent,
     NavComponent,
+    ContactComponent,
 
   ],
   imports: [
