@@ -3,7 +3,7 @@
 ; Title: app-routing.module.ts
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 17 August 2023
+; Last Updated: 21 August 2023
 ; Description: This code supports routing in the app
 ; Sources Used: Bellevue University WEB-450 GitHub
 ;=====================================
@@ -12,6 +12,7 @@
 // imports statements
 import { authGuard } from './shared/auth.guard';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
+import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -32,6 +33,11 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         title: 'Nodebucket: Home'
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+        title: 'Nodebucket: Contact Us'
       },
       {
         path: 'task-management',

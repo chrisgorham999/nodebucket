@@ -14,8 +14,11 @@
 // requires mongoDb
 const { MongoClient } = require('mongodb')
 
-// connection string to connect to the nodebucket db
-const MONGO_URL = 'mongodb+srv://nodebucket_user:s3cret@bellevueuniversity.up6klva.mongodb.net/nodebucket?retryWrites=true&w=majority'
+// imports
+const config  = require('./config')
+
+// connection string to connect to the db
+const MONGO_URL = config.DB_URL
 
 // mongo async function with a next callback function (ErrBack)
 const mongo = async(operations, next) => {
@@ -30,7 +33,7 @@ const mongo = async(operations, next) => {
         })
 
         // Select the database
-        const db = client.db('nodebucket')
+        const db = client.db(config.DB_NAME)
         console.log('Connected to MongoDB Atlas', db)
 
         // Execute the operations
