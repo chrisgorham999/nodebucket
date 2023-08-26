@@ -129,29 +129,53 @@
               "required": true,
               "description": "4 Digit Employee ID",
               "schema": {
-                "text": {
-                  "type": "string"
-                },
-                "category": {
-                  "categoryName": "string",
-                  "backgroundColor": "string"
+                "type": "number"
                 }
               }
-            }],
+            ],
             "requestBody": {
-              "description": "Task info",
+              "description": "Task information",
               "content": {
                 "application/json": {
                   "schema": {
+                    "$ref": "#/components/schemas/taskSchema"
+                  }
+                }
+              }
+            },
+            "responses": {
+              "201": {
+                "description": "Task Created"
+              },
+              "400": {
+                "description": "Bad request"
+              },
+              "404": {
+                "description": "Not found"
+              },
+              "500": {
+                "description": "Server Error"
+              }
+            }
+          }
+        }
+      },
+      "components": {
+        "schemas": {
+          "taskSchema": {
+            "type": "object",
+            "properties": {
+              "task": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "category": {
                     "type": "object",
-                    "required": ["empId"],
                     "properties": {
-                      "text": {
+                      "categoryName": {
                         "type": "string"
-                      },
-                      "category": {
-                        "categoryName": {
-                          "type": "string"
                       },
                       "backgroundColor": {
                         "type": "string"
@@ -160,39 +184,9 @@
                   }
                 }
               }
-            }
             },
-          "responses": {
-            "201": {
-              "description": "Success! The Task has been created",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "todo": {
-                        "text": "string",
-                        "example": "Complete administrative paperwork"
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "400": {
-              "description": "Bad Request"
-            },
-            "404": {
-              "description": "Not Found"
-            },
-            "500": {
-              "description": "Internal Server Error"
-            }
+            "required": ["task", "category"]
+          }
         }
       }
-    },
-    "schemes": ["http"],
-    "consumes": ["application/json"],
-    "produces": ["application/json"]
-  }
-}
+    }
