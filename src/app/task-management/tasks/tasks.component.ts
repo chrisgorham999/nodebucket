@@ -3,7 +3,7 @@
 ; Title: tasks.component.ts
 ; Author: Chris Gorham
 ; Date Created: 16 August 2023
-; Last Updated: 23 August 2023
+; Last Updated: 27 August 2023
 ; Description: This code supports the Task Component
 ; Sources Used: N/A
 ;=====================================
@@ -114,9 +114,9 @@ export class TasksComponent {
   
   // define colors
   const white = '#FFFFFF'
-  const green = '#4BCE97'
-  const purple = '#9F8FEF'
-  const red = '#F87462'
+  const green = '#1a472a'
+  const grey = '#5d5d5d'
+  const black = '#000000'
 
   switch (categoryName) {
     case 'testing': 
@@ -133,7 +133,7 @@ export class TasksComponent {
         text: text,
         category: {
           categoryName: categoryName,
-          backgroundColor: red
+          backgroundColor: grey
         }
        }
        return task
@@ -142,7 +142,7 @@ export class TasksComponent {
         text: text,
         category: {
           categoryName: categoryName,
-          backgroundColor: purple
+          backgroundColor: black
         }
        }
        return task
