@@ -3,7 +3,7 @@
 ; Title: tasks.component.html
 ; Author: Chris Gorham
 ; Date Created: 16 August 2023
-; Last Updated: 23 August 2023
+; Last Updated: 28 August 2023
 ; Description: This code supports the HTML functionality for Tasks Component
 ; Sources Used: N/A
 ;=====================================
@@ -134,8 +134,26 @@
 
                                 </div>
                             </div>
+                            <!--end col-sm-6-->
+                            
+                            <div class="col-sm-6">
+                                <div class="card-body float-end">
+                                    <button class="btn" (click)="deleteTask(item._id ?? '')">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!--only for mobile view ports-->
+                            <div class="col-12 d-sm-none d-md-none d-lg-none d-xl-none d-grid gap-2 p-2">
+                                <button class="btn btn-secondary" (click)="deleteTask(item._id ?? '')">
+                                    Delete
+                                </button>
+                            </div>
+
 
                         </div>
+                        <!--end row-->
                     </div>
 
                 </div>
@@ -173,6 +191,22 @@
 
 
                                 </div>
+                            </div>
+                            <!--end of col-sm-6-->
+                            <div class="col-sm-6">
+                                <div class="card-body float-end">
+                                    <button class="btn" (click)="deleteTask(item._id ?? '')">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--end of col-sm-6-->
+
+                            <!--only for mobile view ports-->
+                            <div class="col-12 d-sm-none d-md-none d-lg-none d-xl-none d-grid gap-2 p-2">
+                                <button class="btn btn-secondary" (click)="deleteTask(item._id ?? '')">
+                                    Delete
+                                </button>
                             </div>
 
                         </div>

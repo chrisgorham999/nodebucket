@@ -88,17 +88,14 @@ export class TasksComponent {
 
   let newTask = this.getTask(text, category)
 
+  // calls to the task service to add a task
   this.taskService.addTask(this.empId, newTask).subscribe({
     next: (task: any) => {
       console.log('Task added with id', task.id)
-
       newTask._id = task.id // set the new task
-
-      this.todo.push(newTask)
+      this.todo.push(newTask) // pushes task to the todo array
       this.newTaskForm.reset()
-
       this.successMessage = 'Task added successfully'
-      
       this.hideAlert()
   },
   error: (err) => {
@@ -106,6 +103,34 @@ export class TasksComponent {
     this.hideAlert()
   }
 })
+ }
+
+ // called when the user hits the delete button
+ deleteTask(taskId: string) {
+  console.log('Task item: ', taskId) // helps with troubleshooting
+
+  if (!confirm('Are you sure you want to delete this task?')) {
+    return
+  }
+ 
+  this.taskService.deleteTask(this.empId, taskId).subscribe({
+    next: (res: any) => {
+      console.log('Task deleted with ID: ', taskId)
+
+      this.todo = this.todo.filter(t => t._id?.toString() !== taskId)
+      this.done = this.done.filter(t => t._id?.toString() !== taskId)
+
+      this.successMessage = 'Task deleted successfully!'
+      this.hideAlert() // fades out the error message after 3 seconds
+    },
+    error: (err) => {
+      console.log('err', err)
+      this.errorMessage = err.message
+      this.hideAlert() // fades out the error message after 3 seconds
+    }
+  })
+  
+
  }
 
  // disappears the alert after 3 seconds by resetting the message to empty
@@ -167,5 +192,7 @@ export class TasksComponent {
          return task
   }
  }
+
+
 
 }
