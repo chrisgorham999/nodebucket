@@ -117,6 +117,9 @@ export class TasksComponent {
     next: (res: any) => {
       console.log('Task deleted with ID: ', taskId)
 
+      if (!this.todo) this.todo = [] // if the todo array is null
+      if (!this.done) this.done = [] // if the done array is null
+
       this.todo = this.todo.filter(t => t._id?.toString() !== taskId)
       this.done = this.done.filter(t => t._id?.toString() !== taskId)
 

@@ -345,6 +345,8 @@ router.delete('/:empId/tasks/:taskId', (req, res, next) => {
                 return
             }
 
+            if (!emp.todo) emp.todo = [] // if the todo array is null
+            if (!emp.done) emp.done = [] // if the done array is null
             // filters out the value where they don't equal the same thing
             const todoItems = emp.todo.filter(task => task._id.toString() !== taskId.toString())
             const doneItems = emp.done.filter(task => task._id.toString() !== taskId.toString())
