@@ -40,14 +40,17 @@ export class TasksComponent {
   })
 
  constructor(private cookieService: CookieService, private taskService: TaskService, private fb: FormBuilder) {
+    // setup variables
     this.employee = {} as Employee
     this.todo = []
     this.done = []
     this.errorMessage = ''
     this.successMessage = ''
     
+    // parse number from the user empId entry
     this.empId = parseInt(this.cookieService.get('session_user'), 10)
 
+    // calls the get task function to load when the page loads
     this.taskService.getTask(this.empId).subscribe({
       next: (emp: any) => {
         console.log('emp', emp)
@@ -62,17 +65,21 @@ export class TasksComponent {
 
         this.todo = this.employee.todo ? this.employee.todo : []
         this.done = this.employee.done ? this.employee.done : []
-
+        // console log for troubleshooting purposes
         console.log('todo', this.todo)
         console.log('done', this.done)
       }
     })
  }
 
+
+ // the function to add a task
  addTask() {
+  // define variables and pull data from the form
   const text = this.newTaskForm.controls['text'].value
   const category = this.newTaskForm.controls['category'].value
 
+  // if there isn't a category, set the error message accordingly
   if (!category) {
     this.errorMessage = 'Please provide a category'
     this.hideAlert()
@@ -101,6 +108,7 @@ export class TasksComponent {
 })
  }
 
+ // disappears the alert after 3 seconds by resetting the message to empty
  hideAlert() {
   setTimeout(() => {
     this.errorMessage = ''
@@ -108,6 +116,7 @@ export class TasksComponent {
   }, 3000)
  }
 
+ // the get task function
  getTask(text: string, categoryName: string) {
 
   let task: Item = {} as Item
@@ -118,6 +127,7 @@ export class TasksComponent {
   const grey = '#5d5d5d'
   const black = '#000000'
 
+  // switch that sets the category button background color depending on the category selected
   switch (categoryName) {
     case 'testing': 
      task = {
