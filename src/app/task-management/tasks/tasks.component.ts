@@ -3,7 +3,7 @@
 ; Title: tasks.component.ts
 ; Author: Chris Gorham
 ; Date Created: 16 August 2023
-; Last Updated: 27 August 2023
+; Last Updated: 29 August 2023
 ; Description: This code supports the Task Component
 ; Sources Used: N/A
 ;=====================================
@@ -57,7 +57,7 @@ export class TasksComponent {
         this.employee = emp
       },
       error: (err) => {
-        console.log('error', err)
+        console.log('error', err) // log the error for troubleshooting assistance
         this.errorMessage = err.message
       },
       complete: () => {
@@ -96,7 +96,7 @@ export class TasksComponent {
       this.todo.push(newTask) // pushes task to the todo array
       this.newTaskForm.reset()
       this.successMessage = 'Task added successfully'
-      this.hideAlert()
+      this.hideAlert() // takes away the alert after 3 seconds
   },
   error: (err) => {
     this.errorMessage = err.message

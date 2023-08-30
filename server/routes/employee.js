@@ -3,7 +3,7 @@
 ; Title: employee.js
 ; Author: Chris Gorham
 ; Date Created: 14 August 2023
-; Last Updated: 28 August 2023
+; Last Updated: 29 August 2023
 ; Description: This code supports the employee route and API functions
 ; Sources Used: Bellevue University WEB-450 Boot Camp Live Classes
 ;=====================================
@@ -26,55 +26,56 @@ const ajv = new Ajv() // create a new instance of the Ajv class
 
 // category schema
 const categorySchema = {
-    type: 'object',
+    type: "object",
     properties: {
-        categoryName: { type: 'string' },
-        backgroundColor: { type: 'string' }
+        categoryName: { type: "string" },
+        backgroundColor: { type: "string" }
     },
-    required: ['categoryName', 'backgroundColor'],
-    additionalProperties: false
-}
+    required: ["categoryName", "backgroundColor"],
+    additionalProperties: false,
+};
 
 // define a schema to validate a new task
 const taskSchema = {
-    type: 'object', 
+    type: "object", 
     properties: {
-        text: { type: 'string' },
-        category: categorySchema
+        text: { type: "string" },
+        category: categorySchema,
     },
-    required: ['text', 'category'], 
+    required: ["text", "category"], 
     additionalProperties: false
-}
+};
 
 // defines the tasks schema
 const tasksSchema = {
-    type: 'object',
-    required: ['todo', 'done'],
+    type: "object",
+    required: ["todo", "done"],
     additionalProperties: false,
     properties: {
         todo: {
-          type: 'array',
+          type: "array",
           items:  {
-            type: 'object',
+            type: "object",
             properties: {
-                _id: { type: 'string' },
-                text: { type: 'string' },
-                category: categorySchema
+                _id: { type: "string" },
+                text: { type: "string" },
+                category: categorySchema,
             },
-            required: ['_id', 'text', 'category'],
-            additionalProperties: false
-          }
+            required: ["_id", "text", "category"],
+            additionalProperties: false,
+          },
         },
         done: {
-          type: 'array',
+          type: "array",
           items: {
+            type: "object",
             properties: {
-                _id: { type: 'string' },
-                text: { type: 'string' },
+                _id: { type: "string" },
+                text: { type: "string" },
                 category: categorySchema
               },
-              required: ['_id', 'text', 'category'],
-              additionalProperties: false
+              required: ["_id", "text", "category"],
+              additionalProperties: false,
           }
         }
     }
@@ -295,16 +296,13 @@ router.put('/:empId/tasks', (req, res, next) => {
             )
 
             if (!result.modifiedCount) {
-                const err = new Error('Unable to update tasks for empId' + empId)
+                const err = new Error('Unable to update tasks for empId ' + empId)
                 err.status = 404
                 console.log('err', err)
                 next(err)
                 return
             }
-
-            response.status(204).send()
-
-
+            res.status(204).send()
         }, next)
 
     } catch(err) {
@@ -337,6 +335,7 @@ router.delete('/:empId/tasks/:taskId', (req, res, next) => {
             let emp = await db.collection('employees').findOne({ empId })
             console.log('emp', emp)
 
+            // if you can't find the employee ID error handling
             if (!emp) {
                 const err = new Error('unable to find employee with empId' + empId)
                 err.status = 404
@@ -357,8 +356,8 @@ router.delete('/:empId/tasks/:taskId', (req, res, next) => {
                 {$set: { todo: todoItems, done: doneItems }}
             )
 
-            console.log('result', result)
-            res.status(204).send()
+            console.log('result', result) // logging for troubleshooting assistance
+            res.status(204).send() // send a successful status code
         }, next)
     } catch(err) {
         console.log('err', err)
