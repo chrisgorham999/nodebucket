@@ -3,7 +3,7 @@
 ; Title: employee.js
 ; Author: Chris Gorham
 ; Date Created: 14 August 2023
-; Last Updated: 29 August 2023
+; Last Updated: 30 August 2023
 ; Description: This code supports the employee route and API functions
 ; Sources Used: Bellevue University WEB-450 Boot Camp Live Classes
 ;=====================================
@@ -320,7 +320,7 @@ router.delete('/:empId/tasks/:taskId', (req, res, next) => {
         let { empId } = req.params
         const { taskId } = req.params
         console.log(`EmpID: ${empId}; TaskId: ${taskId}`)
-        empId = parseInt(empId, 10)
+        empId = parseInt(empId, 10) // parse the empId integer from the string
 
         if (isNaN(empId)) {
             const err = new Error('input must be a number')
