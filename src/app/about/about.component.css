@@ -3,13 +3,59 @@
 ; Title: about.component.css
 ; Author: Chris Gorham
 ; Date Created: 30 August 2023
-; Last Updated: 30 August 2023
+; Last Updated: 31 August 2023
 ; Description: This code supports styling for the About Component
 ; Sources Used: N/A
 ;=====================================
 */
 
 .about {
-    background-color: #e9ecef;
+    background-color: #aaaaaa;
     margin-top: -1%;
+}
+
+.font-yellow {
+    color: yellow;
+}
+
+.font-white {
+    color: white;
+}
+
+.bg-slytherin {
+    background-color: #2a623d;
+  }
+  
+.bg-slytherin2 {
+    background-color: #5d5d5d;
+  }
+  
+.bg-slytherin3 {
+    background-color: #aaaaaa;
+  }
+
+.padding-left {
+    padding-left: 20px;
+  }
+
+.align-right {
+    text-align: right;
+}
+
+a:link {
+    color: #5d5d5d;
+}
+
+a:visited {
+    color: #5d5d5d;
+}
+
+a:hover {
+    color: yellow;
+}
+
+.source {
+    font-style: italic;
+    font-size: smaller;
+    color: yellow;
 }

@@ -1,0 +1,198 @@
+/*
+======================================
+; Title: not-found.component.css
+; Author: Chris Gorham
+; Date Created: 30 August 2023
+; Last Updated: 31 August 2023
+; Description: This code supports styling for the Not Found Component
+; Sources Used:
+; CSS Template for Seeker Animation: https://codepen.io/Shahiem/pen/PoqKdjP
+;=====================================
+*/
+
+body {
+    background-color: rgb(27, 38, 44);
+    overflow: hidden;
+    text-align: center;
+    font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  }
+  
+  .notfound {
+    transform: translate(-50%, -30%);
+    left: 50%;
+    top: 30%;
+    position: absolute;
+    opacity: 0;
+    color: yellow;
+    animation: notfound .8s normal forwards ease-out;
+    animation-delay: .7s;
+    z-index: 99;
+  }
+  
+  .notfound h1 {
+    font-weight: 900;
+    font-size: 10em;
+    margin: 0;
+    color: yellow;
+    padding-bottom: 20px;
+  }
+  
+  .notfound__message {
+    background: rgba(0, 0, 0, 0.611764705882353);
+    padding: 20px;
+  }
+  
+  /* SVG */
+  
+  #Layer_1 {
+    position: absolute;
+    animation: fly .9s normal forwards ease-in-out;
+  }
+  
+  .st0,
+  .st4,
+  .st1,
+  .st2,
+  .st3 {
+    animation: waves .6s normal forwards ease-in-out;
+    animation-delay: .2s;
+  
+  }
+  
+  .st1,
+  .st2 {
+    animation-delay: .4s;
+  }
+  
+  .st13 {
+    animation: cape 1s normal forwards ease-in-out;
+    top: -20px;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: center;
+  }
+  
+  /* SVG */
+  .st0 {
+    fill: url(#SVGID_1_);
+  }
+  
+  .st1 {
+    fill: url(#SVGID_2_);
+  }
+  
+  .st2 {
+    fill: url(#SVGID_3_);
+  }
+  
+  .st3 {
+    fill: url(#SVGID_4_);
+  }
+  
+  .st4 {
+    fill: url(#SVGID_5_);
+    position: relative;
+  }
+  
+  .st5 {
+    fill: #AF564A;
+  }
+  
+  .st6 {
+    fill: #D3AC55;
+  }
+  
+  .st7 {
+    fill: #EFBCA1;
+  }
+  
+  .st8 {
+    fill: #081833;
+  }
+  
+  .st9 {
+    fill: #593547;
+  }
+  
+  .st10 {
+    fill: #D38D6B;
+  }
+  
+  .st11 {
+    fill: #A8A1B2;
+  }
+  
+  .st12 {
+    fill: #EAD3C4;
+  }
+  
+  .st13 {
+    fill: #313658;
+  }
+  
+  .st14 {
+    fill: #41496B;
+  }
+  
+  .st15 {
+    fill: #D3AC58;
+  }
+  
+  .st16 {
+    fill: #583446;
+  }
+  
+  .st17 {
+    fill: #41233A;
+  }
+  
+  
+  /* Animation */
+  
+  
+  @keyframes notfound {
+    from {
+      opacity: 0;
+      margin-left: 20px;
+    }
+  
+    to {
+      opacity: 1;
+      margin-left: 0;
+    }
+  }
+  
+  @keyframes cape {
+    from {
+      transform: rotate(15deg);
+  
+    }
+  }
+  
+  @keyframes waves {
+    from {
+      transform: translateX(100%);
+    }
+  
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fly {
+    from {
+      left: 100%;
+      transform: rotate(-30deg);
+    }
+  
+    to {
+      left: 0;
+    }
+  }
+
+  .bg-slytherin {
+    background-color: #2a623d;
+  }
+
+  .font-yellow {
+    color: yellow;
+  }
