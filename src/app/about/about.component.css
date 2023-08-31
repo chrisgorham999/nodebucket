@@ -1,0 +1,15 @@
+/*
+======================================
+; Title: about.component.css
+; Author: Chris Gorham
+; Date Created: 30 August 2023
+; Last Updated: 30 August 2023
+; Description: This code supports styling for the About Component
+; Sources Used: N/A
+;=====================================
+*/
+
+.about {
+    background-color: #e9ecef;
+    margin-top: -1%;
+}

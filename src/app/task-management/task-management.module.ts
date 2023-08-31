@@ -3,7 +3,7 @@
 ; Title: task-management.module.ts
 ; Author: Chris Gorham
 ; Date Created: 16 August 2023
-; Last Updated: 23 August 2023
+; Last Updated: 30 August 2023
 ; Description: This code supports the Task Management Module
 ; Sources Used: N/A
 ;=====================================
@@ -11,6 +11,7 @@
 
 // imports 
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,7 @@ import { TasksComponent } from './tasks/tasks.component';
   ],
   imports: [
     CommonModule,
+    DragDropModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

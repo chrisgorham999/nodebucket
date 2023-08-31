@@ -3,19 +3,22 @@
 ; Title: tasks.component.ts
 ; Author: Chris Gorham
 ; Date Created: 16 August 2023
-; Last Updated: 29 August 2023
+; Last Updated: 30 August 2023
 ; Description: This code supports the Task Component
 ; Sources Used: N/A
 ;=====================================
 */
 
 // imports
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Employee } from './employee.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Item } from './item.interface';
 import { TaskService } from '../task.service';
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+
 
 
 @Component({
@@ -134,6 +137,39 @@ export class TasksComponent {
   })
   
 
+ }
+
+ // drag drop function
+ drop(event: CdkDragDrop<any[]>) {
+  // within the same container
+  if (event.previousContainer === event.container) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
+    console.log('Moved item in array', event.container.data) // for troubleshooting
+    this.updateTasklist(this.empId, this.todo, this.done)
+  } else {
+    transferArrayItem(
+      event.previousContainer.data,
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex
+    )
+    console.log('Moved item in array', event.container.data) // for troubleshooting
+    this.updateTasklist(this.empId, this.todo, this.done)
+
+  }
+ }
+
+ updateTasklist(empId: number, todo: Item[], done: Item[]) {
+   this.taskService.updateTask(empId, todo, done).subscribe({
+    next: (res: any) => {
+      console.log('Task updated successfully')
+    },
+    error: (err) => {
+      console.log('err', err)
+      this.errorMessage = err.message
+      this.hideAlert()
+    }
+   })
  }
 
  // disappears the alert after 3 seconds by resetting the message to empty

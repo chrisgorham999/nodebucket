@@ -3,13 +3,14 @@
 ; Title: app.module.ts
 ; Author: Chris Gorham
 ; Date Created: 15 August 2023
-; Last Updated: 23 August 2023
+; Last Updated: 30 August 2023
 ; Description: This code supports app module functionality
 ; Sources Used: Bellevue University WEB-450 GitHub
 ;=====================================
 */
 
 // import statements
+import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
@@ -29,6 +30,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavComponent } from './layouts/nav/nav.component';
 import { NgModule } from '@angular/core';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 
 
@@ -41,6 +44,8 @@ import { NgModule } from '@angular/core';
     HomeComponent,
     NavComponent,
     ContactComponent,
+    NotFoundComponent,
+    AboutComponent,
 
   ],
   imports: [
