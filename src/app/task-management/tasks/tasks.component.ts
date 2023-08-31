@@ -158,7 +158,7 @@ export class TasksComponent {
 
   }
  }
-
+ // update task list function (for after drags and drops)
  updateTasklist(empId: number, todo: Item[], done: Item[]) {
    this.taskService.updateTask(empId, todo, done).subscribe({
     next: (res: any) => {
@@ -167,7 +167,7 @@ export class TasksComponent {
     error: (err) => {
       console.log('err', err)
       this.errorMessage = err.message
-      this.hideAlert()
+      this.hideAlert() // makes alert go away after 3 seconds
     }
    })
  }
