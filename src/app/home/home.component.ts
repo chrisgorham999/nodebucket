@@ -5,11 +5,11 @@
 ; Date Created: 15 August 2023
 ; Last Updated: 15 August 2023
 ; Description: This code supports the Home Component
-; Sources Used: Bellevue University WEB-450 GitHub
+; Sources Used: Bellevue University Nightly Coding Sessions
 ;=====================================
 */
 
-// import statements
+// imports
 import { Component } from '@angular/core';
 
 @Component({

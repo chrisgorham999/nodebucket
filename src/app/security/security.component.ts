@@ -9,7 +9,7 @@
 ;=====================================
 */
 
-// imports statements
+// imports
 import { Component } from '@angular/core';
 
 @Component({

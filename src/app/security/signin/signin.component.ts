@@ -59,7 +59,7 @@ export class SigninComponent {
       this.isLoading = false
       return
     }
-
+    // finds the employee ID number in the database
     this.secService.findEmployeeById(empId).subscribe({
       next: (employee: any) => {
         this.sessionUser = employee
@@ -70,6 +70,7 @@ export class SigninComponent {
         this.isLoading = false;
         this.router.navigate([returnUrl])
       },
+      // error handling
       error: (err) => {
         this.isLoading = false
         if (err.error.message) {

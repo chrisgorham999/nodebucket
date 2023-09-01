@@ -3,7 +3,7 @@
 ; Title: employee.js
 ; Author: Chris Gorham
 ; Date Created: 14 August 2023
-; Last Updated: 23 August 2023
+; Last Updated: 30 August 2023
 ; Description: This code supports the employee route and API functions
 ; Sources Used: Bellevue University WEB-450 Boot Camp Live Classes
 ;=====================================
@@ -19,29 +19,66 @@ const { mongo } = require('../utils/mongo')
 const Ajv = require('ajv')
 const { ObjectId, ReturnDocument } = require('mongodb')
 const { restart } = require('nodemon')
+const { response } = require('express')
+const { todo } = require('node:test')
 
 const ajv = new Ajv() // create a new instance of the Ajv class
 
 // category schema
 const categorySchema = {
-    type: 'object',
+    type: "object",
     properties: {
-        categoryName: { type: 'string' },
-        backgroundColor: { type: 'string' }
+        categoryName: { type: "string" },
+        backgroundColor: { type: "string" }
     },
-    required: ['categoryName', 'backgroundColor'],
-    additionalProperties: false
-}
+    required: ["categoryName", "backgroundColor"],
+    additionalProperties: false,
+};
 
 // define a schema to validate a new task
 const taskSchema = {
-    type: 'object', 
+    type: "object", 
     properties: {
-        text: { type: 'string' },
-        category: categorySchema
+        text: { type: "string" },
+        category: categorySchema,
     },
-    required: ['text', 'category'], 
+    required: ["text", "category"], 
     additionalProperties: false
+};
+
+// defines the tasks schema
+const tasksSchema = {
+    type: "object",
+    required: ["todo", "done"],
+    additionalProperties: false,
+    properties: {
+        todo: {
+          type: "array",
+          items:  {
+            type: "object",
+            properties: {
+                _id: { type: "string" },
+                text: { type: "string" },
+                category: categorySchema,
+            },
+            required: ["_id", "text", "category"],
+            additionalProperties: false,
+          },
+        },
+        done: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+                _id: { type: "string" },
+                text: { type: "string" },
+                category: categorySchema
+              },
+              required: ["_id", "text", "category"],
+              additionalProperties: false,
+          }
+        }
+    }
 }
 
 
@@ -207,6 +244,126 @@ router.post('/:empId/tasks', (req, res, next) => {
     }
 })
 
+// update task API
+router.put('/:empId/tasks', (req, res, next) => {
+    try {
+
+        let { empId } = req.params
+        empId = parseInt(empId, 10)
+
+        // if empId isn't a number, return an error
+        if (isNaN(empId)) {
+            const err = new Error('input must be an number')
+            err.status = 400
+            console.log('err', err) // helps with troubleshooting
+            next(err) // move to next 
+            return
+        }
+
+        mongo(async db => {
+
+            const employee = await db.collection('employees').findOne({ empId })
+            console.log('employee', employee)
+
+            if (!employee) {
+                const err = new Error('unable to find employee with empId' + empId)
+                err.status = 404
+                console.log('err', err) // helps with troubleshooting
+                next(err) // move to next
+                return
+            }
+
+            const tasks = req.body
+            console.log('tasks', tasks) // helps with troubleshooting
+
+            const validator = ajv.compile(tasksSchema)
+            const valid = validator(tasks) // passes in tasks to validator
+
+            console.log('valid', valid)
+
+            if (!valid) {
+                const err = new Error('Bad Request')
+                err.status = 400
+                err.errors = validator.errors
+                console.log('req.body validation failed', err) // helps with troubleshooting
+                next(err)
+                return
+            }
+
+            const result = await db.collection('employees').updateOne(
+                { empId },
+                { $set: {todo: tasks.todo, done: tasks.done } }
+            )
+
+            if (!result.modifiedCount) {
+                const err = new Error('Unable to update tasks for empId ' + empId)
+                err.status = 404
+                console.log('err', err)
+                next(err)
+                return
+            }
+            res.status(204).send()
+        }, next)
+
+    } catch(err) {
+        // catch block error handling
+        console.log('err', err)
+        next(err)
+    }
+})
+
+// delete task API
+router.delete('/:empId/tasks/:taskId', (req, res, next) => {
+    console.log('inside the delete tasks function')
+
+    try {
+        let { empId } = req.params
+        const { taskId } = req.params
+        console.log(`EmpID: ${empId}; TaskId: ${taskId}`)
+        empId = parseInt(empId, 10) // parse the empId integer from the string
+
+        if (isNaN(empId)) {
+            const err = new Error('input must be a number')
+            err.status = 400
+            console.log('err', err)
+            next(err)
+            return
+        }
+
+        mongo(async db => {
+
+            let emp = await db.collection('employees').findOne({ empId })
+            console.log('emp', emp)
+
+            // if you can't find the employee ID error handling
+            if (!emp) {
+                const err = new Error('unable to find employee with empId' + empId)
+                err.status = 404
+                console.log('err', err)
+                next(err)
+                return
+            }
+
+            if (!emp.todo) emp.todo = [] // if the todo array is null
+            if (!emp.done) emp.done = [] // if the done array is null
+            // filters out the value where they don't equal the same thing
+            const todoItems = emp.todo.filter(task => task._id.toString() !== taskId.toString())
+            const doneItems = emp.done.filter(task => task._id.toString() !== taskId.toString())
+            console.log(`Todo item: ${todoItems}; Done Item: ${doneItems}`)
+
+            const result = await db.collection('employees').updateOne(
+                { 'empId': empId },
+                {$set: { todo: todoItems, done: doneItems }}
+            )
+
+            console.log('result', result) // logging for troubleshooting assistance
+            res.status(204).send() // send a successful status code
+        }, next)
+    } catch(err) {
+        console.log('err', err)
+        next(err)
+    }
+})
 
 // exports router
 module.exports = router;
